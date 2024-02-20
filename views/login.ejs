@@ -1,0 +1,64 @@
+<%- include('partials/header.ejs'); %>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
+
+    <body>
+        <div style="display: flex; gap: 5rem; justify-content: center;">
+            <div>
+                <img src="icons/heart.png" style="height: 450px;" alt="">
+            </div>
+            <div>
+                <form style="width: 500px; margin: 0 auto 50px;" action="/login" method="POST">
+                    <% if(locals.error){ %>
+                        <p name="error" style="color: red; position: relative; margin-top: 30px;">
+                            <%= locals.error %>
+                        </p>
+                        <% }else if(locals.email_dne){ %>
+                            <p name="error" style="color: red; position: relative; margin-top: 30px;">
+                                <%= locals.email_dne %>
+                                    <a href="/register">Register Here</a>
+                            </p>
+                            <% }else{ %>
+                                <p style="visibility: hidden;">asd</p>
+                                <% } %>
+                                    <div class="row mb-3">
+                                        <p style="font-size: 3rem;">Know your 💖 health</p>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+                                        <div class="col-sm-6 mt-1">
+                                            <input name="username" type="email" class="form-control" id="inputEmail">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+                                        <div class="col-sm-6 mt-1">
+                                            <input name="password" type="password" class="form-control"
+                                                id="inputPassword">
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="pushable mt-5">
+                                        <span class="front">
+                                            Sign in
+                                        </span>
+                                    </button>
+                </form>
+
+                <a href="/auth/google" type="button" class="login-with-google-btn">
+                    Sign in with Google
+                </a>
+            </div>
+        </div>
+    </body>
+
+    </html>
+    <%- include('partials/footer.ejs'); %>

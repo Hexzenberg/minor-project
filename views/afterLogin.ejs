@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
+
+    <body>
+        <p>HELLO YOU'VE SUCCESSFULLY LOGGED IN. ID:
+            <% if(locals.user){ %>
+                <%= user.id %>
+                    <% } %>
+        </p>
+        <form action="/logout" method="GET">
+            <button type="submit" class="pushable" style="margin: 10rem;">
+                <span class="front">
+                    Log out
+                </span>
+            </button>
+        </form>
+    </body>
+
+    </html>
+    <%- include('partials/footer.ejs') %>
